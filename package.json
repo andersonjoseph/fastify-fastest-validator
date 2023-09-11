@@ -9,23 +9,31 @@
     "test:watch": "npm run build:watch & node --test --watch ./dist/tests",
     "format": "npx biome format --write ./src ./tests",
     "lint": "npx biome check --apply ./src ./tests",
-    "build": "tsc -p ./tsconfig.json",
-    "build:watch": "tsc -p ./tsconfig.json --watch"
+    "build": "npm run clean && tsc -p ./tsconfig.json",
+    "build:watch": "npm run clean && tsc -p ./tsconfig.json --watch",
+    "clean": "rimraf dist",
+    "prepublish": "npm run clean && npm run format && npm run lint && npm run build && npm run test"
   },
   "author": "Anderson Joseph <andersonjoseph@mailfence.com>",
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "1.1.2",
     "@types/node": "^20.6.0",
+    "bun-types": "latest",
     "fastify": "^4.23.0",
+    "rimraf": "^5.0.1",
     "tsx": "^3.12.8",
-    "typescript": "^5.2.2",
-    "bun-types": "latest"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "fastest-validator": "^1.17.0",
     "fastify-plugin-ts": "^0.0.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andersonjoseph/fastify-fastest-validator"
+  },
+  "homepage": "https://github.com/andersonjoseph/fastify-fastest-validator",
   "files": [
     "./dist/src"
   ]
