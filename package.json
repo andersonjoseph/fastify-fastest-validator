@@ -1,0 +1,32 @@
+{
+  "name": "fastify-fastest-validator",
+  "version": "0.0.1",
+  "description": "fastest validator plugin for fastify",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "scripts": {
+    "test": "npm run build && node --test ./dist/tests",
+    "test:watch": "npm run build:watch & node --test --watch ./dist/tests",
+    "format": "npx biome format --write ./src ./tests",
+    "lint": "npx biome check --apply ./src ./tests",
+    "build": "tsc -p ./tsconfig.json",
+    "build:watch": "tsc -p ./tsconfig.json --watch"
+  },
+  "author": "Anderson Joseph <andersonjoseph@mailfence.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "1.1.2",
+    "@types/node": "^20.6.0",
+    "fastify": "^4.23.0",
+    "tsx": "^3.12.8",
+    "typescript": "^5.2.2",
+    "bun-types": "latest"
+  },
+  "dependencies": {
+    "fastest-validator": "^1.17.0",
+    "fastify-plugin-ts": "^0.0.1"
+  },
+  "files": [
+    "./dist/src"
+  ]
+}
